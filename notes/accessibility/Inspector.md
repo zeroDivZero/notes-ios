@@ -36,7 +36,7 @@ Simulates VoiceOver audio. Click speaker button to toggle sound.
 
 ## Audit
 
-Press **Run** button to check for accessibility problems in app, presented as warnings.
+Press **Run** button to check for a11y problems in app, presented as warnings.
 
 Click individual warning to highlight related element in simulator and bottom of Audit screen.
 

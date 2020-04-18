@@ -16,4 +16,4 @@ In addition to driving UI updates, also useful in asynchronous programming. E.g.
 
 Publisher object sends values to subscribers over time. Could be single, multiple, or no values. Can only emit single completion or error event. Publisher flow commonly represented by _marble diagram_:
 
-![publisher flow marble diagram](../../assets/combine_publisher.png)
+![publisher flow marble diagram](../assets/combine_publisher.png)

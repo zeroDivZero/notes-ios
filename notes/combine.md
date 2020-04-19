@@ -41,7 +41,7 @@ Can model value stream with array.
 
 Combine adds `publisher` property to `Array`. Turns array of values into publisher to publish values to subscribers.
 
-Created publisher type is `Publishers.Sequence<[Int], Never>`. `Publishers` is enum used as namespace for all publishers. Each publisher conforms to `Publisher`.
+Created publisher type is `Publishers.Sequence<[Int], Never>`. `Publishers` is enum used as namespace for all publishers. Each publisher conforms to `Publisher`, but rarely created directly.
 
+Generic types `[Int]` and `Never` means publisher will use sequence of type `[Int]` to publish values and that its failure type is `Never`. always complete successfully. never reach .failure case in switch
 subscribe to a publisher using the sink(receiveCompletion:receiveValue:) method. 
-

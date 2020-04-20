@@ -37,11 +37,42 @@ Can model value stream with array.
   }, receiveValue: { value in
     print("Received value \(value)")
   })
+
+// Received value 1
+// Received value 2
+// Received value 3
+// Received Completion
 ```
 
 Combine adds `publisher` property to `Array`. Turns array of values into publisher to publish values to subscribers.
 
 Created publisher type is `Publishers.Sequence<[Int], Never>`. `Publishers` is enum used as namespace for all publishers. Each publisher conforms to `Publisher`, but rarely created directly.
 
-Generic types `[Int]` and `Never` means publisher will use sequence of type `[Int]` to publish values and that its failure type is `Never`. always complete successfully. never reach .failure case in switch
-subscribe to a publisher using the sink(receiveCompletion:receiveValue:) method. 
+Generic types `[Int]` and `Never` mean publisher uses sequence type `[Int]` to publish values, and its failure type is `Never`, so it always completes successfully, never reaches `.failure` case in example `switch`.
+
+Every publisher has `Output` and `Failure` type. `Output` is value type publisher pushes to subscribers. In above example `Sequence`, `Output` is `Int`, `Failure` is `Never`. Publisher that can fail often uses object conforming to `Error` as `Failure` type, but can specify other type.
+
+Subscribe to publisher with `sink(receiveCompletion:receiveValue:)`. There is special version if publisher has failure type `Never`, only need to supply `receiveValue` closure. Publisher only publishes values when there is subscriber. This method creates subscriber immediately and enables publisher to begin streaming values.
+
+`receiveValue` closure called each time new value is published, value received as its single arg.
+
+## Tracking Subscriptions
+
+Typically need to hold on to return type of `sink()`, or subscriber discarded when out of scope. Return type is `AnyCancellable`: type-erased wrapper around `Cancellable`. Can explicitly cancel subscription (`subscription.cancel()`), or automatically canceled when deallocated.
+
+```swift
+var subscription: AnyCancellable?
+
+func subscribe() {
+  let notification = UIApplication.keyboardDidShowNotification
+  let publisher = NotificationCenter.default.publisher(for: notification)
+  subscription = publisher.sink(receiveCompletion: { _ in
+    print("Completion")
+  }, receiveValue: { notification in
+    print("Received notification: \(notification)")
+  })
+}
+
+subscribe()
+NotificationCenter.default.post(Notification(name: UIApplication.keyboardDidShowNotification))
+```

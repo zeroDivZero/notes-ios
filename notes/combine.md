@@ -65,10 +65,10 @@ var subscription: AnyCancellable?
 
 func subscribe() {
   let notification = UIApplication.keyboardDidShowNotification
-  let publisher = NotificationCenter.default.publisher(for: notification)
-  subscription = publisher.sink(receiveCompletion: { _ in
+  let publisher = NotificationCenter.default.publisher(for: notification) // type: NotificationCenter.Publisher
+  subscription = publisher.sink(receiveCompletion: { _ in // arg type: Subscribers.Completion<Never>, meaning Failure == Never
     print("Completion")
-  }, receiveValue: { notification in
+  }, receiveValue: { notification in // arg type: Notification, meaning Output == Notification
     print("Received notification: \(notification)")
   })
 }

@@ -76,3 +76,43 @@ func subscribe() {
 subscribe()
 NotificationCenter.default.post(Notification(name: UIApplication.keyboardDidShowNotification))
 ```
+
+## Transforming Publisher
+
+Often don't use values emitted from publisher directly. Publishers can transform stream values with operators like `map` and `flatMap` (creates new publisher).
+
+![map publisher flow marble diagram](../assets/combine_publisher_map.png)
+
+New publisher type is `Publishers.Map<Upstream, Output>`. `Upstream` must be another publisher.
+
+```swift
+// transforms keyboard notification to keyboard height (CGFloat)
+let publisher = NotificationCenter.default
+    .publisher(for: UIResponder.keyboardDidShowNotification)
+    .map { (notification) -> CGFloat in
+        guard let endFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return 0.0
+        }
+
+        return endFrame.cgRectValue.height
+} // type: Publishers.Map<NotificationCenter.Publisher, CGFloat>
+```
+
+### `collect()`
+
+![collect publisher flow marble diagram](../assets/combine_publisher_collect.png)
+
+Takes values from publisher, collects into array and sends to subscribers when threshold met.
+
+```swift
+[1, 2, 3]
+    .publisher
+    .collect(2) // Publishers.CollectByCount<Publishers.Sequence<[Int], Never>>
+    .sink { value in
+        print("Received value \(value)")
+}
+// Received value [1, 2]
+// Received value [3]
+```
+
+If specified no threshold, new publisher type is `Result<Success, Failure>.Publisher` (`Result<[Output], Never>.Publisher` in this example), returns all values or error. Warning: uses unbounded memory.

@@ -2,8 +2,6 @@
 
 Framework to aggregate and analyze per-device reports on exception and crash diagnostics of on-device app, and on power and performance metrics.
 
-Once per day, get reports about previous 24 hours at most.
-
 Does not return data to Mac apps built with **Catalyst**.
 
 ## Setup

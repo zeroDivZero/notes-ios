@@ -33,9 +33,7 @@ Each `didReceive(_:)` is called at most once a day.
 
 All metric classes have base class `MXMetric` (and similarly `MXDiagnostic`), which has `jsonRepresentation()` to easily pass metric as JSON.
 
-Xcode can simulate metrics. Does not work on simulator, need physical device:
-
-**Debug > Simulate MetricKit Payloads**
+Xcode can simulate metrics. Does not work on simulator, need physical device: **Debug > Simulate MetricKit Payloads**
 
 ## Logging
 

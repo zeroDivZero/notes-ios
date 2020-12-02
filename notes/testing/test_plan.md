@@ -4,7 +4,7 @@ Xcode feature. Way to run test set with particular config. JSON file with `.xcte
 
 1. **Test targets:** One or more test targets (unit or UI). For each target, select tests (not always all) plan will run and if tests can run in parallel.
 
-2. **Shared settings:** Set of default options, can be overriden by specific config. Settings typically found in scheme editor: launch args, l10n settings, screenshot settings, text execution (alphabetic or random), runtime sanitizers, thread checker, and malloc guards.
+2. **Shared settings:** Set of default options, can be overridden by specific config. Settings typically found in scheme editor: launch args, l10n settings, screenshot settings, execution order (alphabetic or random), runtime sanitizers, thread checker, and malloc guards.
 
 3. **Configs:** One or more configs to override shared settings. Test plan runs selected tests multiple times, once per config.
 

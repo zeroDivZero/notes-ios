@@ -1,6 +1,4 @@
-# OVERVIEW
-
-## Why Test
+# WHY TEST
 
 Good tests give us confidence to make bold changes, help detect and resolve regressions early, and provide
 comprehensive and practical description of expectations of app's functionality.

@@ -62,8 +62,6 @@ Each test method must:
 
 After Xcode finds all `XCTestCase` subclasses, it scans each for matching methods with above rules, treating them as tests.
 
-Easy way to disable test is to append word like "DISABLED_" in front of method name.
-
 Typical naming convention:
 **UnitOfWork_StateUnderTest_ExpectedBehavior**
 

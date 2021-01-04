@@ -10,6 +10,10 @@ sut.doSomething()
 XCTAssertTrue(sut.doneSomething)
 ```
 
+## `addTeardownBlock()`
+
+Registers block of teardown code to run after current test method ends. Useful if test can pollute others but don't want teardown code in `tearDown()`.
+
 ## `XCTUnwrap()`
 
 Asserts expression not `nil`, and returns unwrapped value. Saves having to do optional binding with `guard` or `if let`.
@@ -42,14 +46,6 @@ try XCTSkipUnless(UIDevice.current.userInterfaceIdiom == .pad,
 
 May be preferable to prepending prefix like "DISABLED_" to test method name, since those tests do not show up in Xcode test log.
 
-## Floating-Point Accuracy
-
-Typically not desirable to assert exact equality of float-points due to rounding error. Can use assertion function with `accuracy` param:
-
-```swift
-XCTAssertEqual(CGFloat.pi, 3.14, accuracy: 0.01)
-```
-
 ## `continueAfterFailure`
 
 `XCTestCase` property to indicate test method should continue after failure occurs. Default `true`.
@@ -67,6 +63,14 @@ continueAfterFailure = false
 Requires timeout enabled: set **Test Timeouts** to **On** in test plan, or set `-test-timeouts-enabled` to `YES` with `xcodebuild`.
 
 May be less if set **Maximum Test Execution Time Allowance** in test plan, or set `-maximum-test-execution-time-allowance` with `xcodebuild`.
+
+## Floating-Point Accuracy
+
+Typically not desirable to assert exact equality of float-points due to rounding error. Can use assertion function with `accuracy` param:
+
+```swift
+XCTAssertEqual(CGFloat.pi, 3.14, accuracy: 0.01)
+```
 
 ## `#filePath`
 

@@ -1,4 +1,4 @@
-# CONTROL INPUTS
+# INPUT
 
 Test should, when given specific input, always expect same specific output, regardless of app state or order of tests. **I** and **R** in **FIRST** - isolated and repeatable.
 

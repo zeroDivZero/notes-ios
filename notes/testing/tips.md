@@ -1,5 +1,12 @@
 # TIPS
 
+## Keyboard Shortcuts
+
+* Cmd+U: Run all tests.
+* Shift+Cmd+U: Compile but not run tests.
+* Ctrl+Alt+Cmd+U: Run test cursor is in.
+* Ctrl+Alt+Cmd+G: Run last test. Could be single test, test class, or all test classes.
+
 ## `sut`
 
 Often see variable declared as `sut`, which stands for *system under test*, that refers to subject to test.

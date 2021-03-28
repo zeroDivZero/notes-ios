@@ -17,10 +17,6 @@ sut.doSomething()
 XCTAssertTrue(sut.doneSomething)
 ```
 
-## `addTeardownBlock()`
-
-Registers block of teardown code to run after current test method ends. Useful if test can pollute others but don't want teardown code in `tearDown()`.
-
 ## `XCTUnwrap()`
 
 Asserts expression not `nil`, and returns unwrapped value. Saves having to do optional binding with `guard` or `if let`.
@@ -29,9 +25,17 @@ Asserts expression not `nil`, and returns unwrapped value. Saves having to do op
 let myInt = try XCTUnwrap(myIntOptional)
 ```
 
+## Test Error
+
+Can catch error in test, use `XCTAssertThrowsError()` and `XCTAssertNoThrow()` to catch error, or make test itself throw error (failing test).
+
+## `addTeardownBlock()`
+
+Registers block of teardown code to run after current test method ends. Useful if test can pollute others but don't want teardown code in `tearDown()`.
+
 ## `XCTSkip`
 
-Error to cause test to stop and be marked as skipped when thrown. Allows skipping test based on runtime info (e.g., not testing iPad-specific feature on iPhone sim, network down, etc.).
+Error when thrown causes test to stop and be marked as skipped. Allows skipping test based on runtime info (e.g., not testing iPad-specific feature on iPhone sim, network down, etc.).
 
 ```swift
 guard #available(iOS 13.4, *) else {

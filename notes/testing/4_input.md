@@ -4,7 +4,7 @@ Test should, when given specific input, always expect same specific output, rega
 
 Code under test must rely solely on provided input - via initializer or properties (dependency injection). If it accesses something not provided by test, such as via singleton, it's harder to test.
 
-Avoid side effects, use immutable data and not functions to change mutable variables, and reduce app state.
+Avoid side effects, use immutable data and not funcs to change mutable variables, and reduce app state.
 
 Highly testable code makes writing unit tests trivial.
 

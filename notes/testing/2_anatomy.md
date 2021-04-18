@@ -30,7 +30,7 @@ Must extend `XCTestCase`. Xcode automatically scans test bundle for all `XCTestC
 
 Can override instance methods `setUp()` and `tearDown()` (or `setUpWithError()` and `tearDownWithError()` if need to throw errors), which are called before and after each test.
 
-Can override class methods `setUp()` and `tearDown()` that are called before and after running all tests.
+Can override class methods `setUp()` and `tearDown()` called before and after running all tests.
 
 Order of execution:
 
@@ -48,9 +48,9 @@ tearDown()
 class func tearDown()
 ```
 
-Tests executed in alphabetical order, hence `testMethodThree()` before `testMethodTwo()`, regardless of order in `MyAppTests`. Important to keep tests independent (so to avoid `test001AddUser()`).
+Tests executed in alphabetical order, hence `testMethodThree()` before `testMethodTwo()`, regardless of order in `MyAppTests`. Important to keep tests independent (to avoid `test001AddUser()`).
 
-Xcode creates an instance of test class for _each_ test. If there are 3 tests, 3 instances of `MyAppTests` are created. If test needs any object, best declared as optional property, created in `setUp()`, and destroyed in `tearDown()`.
+Xcode creates instance of test class for _each_ test. If there are 3 tests, 3 instances of `MyAppTests` are created. If test needs any object, best declared as optional property, created in `setUp()`, and destroyed in `tearDown()`.
 
 ## Test Methods
 
@@ -73,7 +73,7 @@ func test_Balloon_AfterNeedlePoke_ShouldPop() {
 
 ## Assertion
 
-Use one (or more, but usually one per test) of assertion funcs to verify result of test matches expectation. Examples:
+Use one (or more, but usually one per test) of assert funcs to verify result of test matches expectation. Examples:
 
 ```swift
 XCTAssert()
@@ -83,9 +83,9 @@ XCTAssertEqual(), XCTAssertNotEqual()
 XCTAssertThrowsError(), XCTAssertNoThrow()
 ```
 
-May be tempted to use only `XCTAssert()` or `XCTAssertTrue()`, but more specific assert makes test more readable, and error message is more descriptive if test fails.
+May be tempted to use only `XCTAssert()` or `XCTAssertTrue()`, but more specific assert makes test more readable, and error message more descriptive if test fails.
 
-Every assert func allows custom error message.
+Every assert func allows custom error message:
 
 ```swift
 XCTAssertFalse(ballon.popped, "Balloon should not be
@@ -98,8 +98,8 @@ XCTAssertEqual(correctLengthInMeters, testedLengthInMeters,
 
 Typically structured with **Arrange, Act, Assert** paradigm, which breaks test into 3 steps:
 
-1. Setting things up for test.
-2. Executing code to be tested.
-3. Evaluating result of test.
+1. Set things up for test.
+2. Execute code to be tested.
+3. Evaluate result of test.
 
 Also referred to as *Given, When, Then* (common to see these steps as comments in test).

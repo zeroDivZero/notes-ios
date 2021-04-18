@@ -21,7 +21,7 @@ If order of elements in array doesn't matter, don't test it. Use `Set`, or:
 ```swift
 extension Array where Element: Comparable {
     func fuzzyMatches(other: Array) -> Bool {
-        self.sorted() == other.sorted()
+        sorted() == other.sorted()
     }
 }
 ```

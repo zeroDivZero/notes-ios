@@ -16,13 +16,13 @@ Designed to test atomic unit of functionality. Most common tests. They should be
 * **Self-verifying:** Test should unambiguously say whether it passed or failed, with no room for interpretation.
 * **Timely:** They should be written before or alongside production code.
 
-Unit tests assure that little bits of app work, so hopefully when little bits are combined into bigger bits, those work too.
+Unit tests assure that little bits of app work, so hopefully when little bits combined into bigger bits, those work too.
 
-Since code is tested in isolation, if other components involved, often simulated with test doubles to not complicate test.
+Since code is tested in isolation, if other components involved, often simulated with test doubles to keep test simple.
 
 ## Integration Tests
 
-When different components combine together to complete specific task in app. E.g., unit tests verify A, B, and C work in isolation, then create integration test to verify A -> B -> C leads to D.
+When different components combine to complete specific task in app. E.g., unit tests verify A, B, and C work in isolation, then create integration test to verify A -> B -> C leads to D.
 
 Should still be isolated and repeatable, but may not be fast, self-verifying (may require manual check of result), and timely.
 
@@ -37,7 +37,7 @@ More accurately reflect real-world usage (can only do what user can do), but are
 ## Test Flow
 
 1. Compiler checks. Static.
-2. Unit tests, integration tests, and UI tests. Some prefer different engineers writing tests than code authors.
+2. Unit, integration, and UI tests. Some prefer different engineers writing tests than code authors.
 3. Continuous integration runs tests externally. May run subset of tests as "smoke tests" (most important functionalities).
 4. QA engineers manual testing with test sheets or grids, or fuzz testing (randomly and rapidly hitting UI).
 5. Hallway testing / dogfooding. Get other users within organization, or use app myself.

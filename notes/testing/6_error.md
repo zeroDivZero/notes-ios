@@ -1,6 +1,6 @@
 # ERROR
 
-When testing throwing function, should test both success path and error path. 3 ways: catch error, assert on throw, and test itself throws.
+When testing throwing function, should test both success and error paths. 3 ways: catch error, assert on throw, and test itself throws.
 
 ## Catch Error
 
@@ -19,11 +19,11 @@ func testPlayingBioBlitzThrows() {
 }
 ```
 
-`game.play()` is expected to throw, so if it doesn't, or if it throws wrong error, `XCTfail()` fails test.
+`game.play()` expected to throw, so if it doesn't, or if it throws wrong error, `XCTfail()` fails test.
 
 ## Assert on Throw
 
-**XCTest** provides `XCTAssertThrowsError()` and `XCTAssertNoThrow()` to check if expression throws.
+**XCTest** provides `XCTAssertThrowsError()` and `XCTAssertNoThrow()` to check if expression throws. Add trailing closure to handle error.
 
 ```swift
 func testPlayingBlastazapThrows() {
@@ -32,11 +32,7 @@ func testPlayingBlastazapThrows() {
         XCTAssertEqual(error as? GameError, GameError.notInstalled)
     }
 }
-```
 
-Add trailing closure to handle error.
-
-```swift
 func testPlayingExplodingMonkeysDoesntThrow() {
     let game = Game(name: "Exploding Monkeys")
     XCTAssertNoThrow(try game.play())

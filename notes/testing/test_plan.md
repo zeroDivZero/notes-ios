@@ -72,6 +72,6 @@ xcodebuild test -scheme ToDo -destination 'platform=iOS Simulator,OS=13.3,name=i
 
 * **Run selected tests with specific config:** E.g., perf tests usually should not run in parallel.
 
-* **Different test scopes:** Can run default quick test set with 1 config and **cmd-U**. Then full set of unit, UI, and perf tests running against several configs.
+* **Different test scopes:** Can run default quick test set with 1 config and **cmd+U**. Then full set of unit, UI, and perf tests running against several configs.
 
 Each scheme can have 1+ test plans; easier to manage than schemes.

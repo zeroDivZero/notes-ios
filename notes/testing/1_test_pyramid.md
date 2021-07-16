@@ -4,11 +4,11 @@ Stack representing different types of tests. All needed to effectively quality-a
 
 ![test pyramid](../../assets/test_pyramid.png)
 
-When going up stack, tests become slower, less stable, and less common. Tests are "flaky" when they are indeterministic or give different results in repeated runs, and devs stop trusting them as accurate measure of code health.
+When going up stack, tests become slower, less stable, and less common. Tests are "flaky" when indeterministic (e.g., give different results in repeated runs); devs stop trusting them as accurate measure of code health.
 
 ## Unit Tests
 
-Designed to test atomic unit of functionality. Most common tests. They should be **FIRST**:
+Designed to test atomic unit of functionality. Most common. Should be **FIRST**:
 
 * **Fast:** Faster they are, more often they'll be run.
 * **Isolated:** One test should not depend on another having run, or any external state.
@@ -16,13 +16,13 @@ Designed to test atomic unit of functionality. Most common tests. They should be
 * **Self-verifying:** Test should unambiguously say whether it passed or failed, with no room for interpretation.
 * **Timely:** They should be written before or alongside production code.
 
-Unit tests assure that little bits of app work, so hopefully when little bits combined into bigger bits, those work too.
+Unit tests assure atomic bits of code work, so when combined into bigger parts, those work too.
 
 Since code is tested in isolation, if other components involved, often simulated with test doubles to keep test simple.
 
 ## Integration Tests
 
-When different components combine to complete specific task in app. E.g., unit tests verify A, B, and C work in isolation, then create integration test to verify A -> B -> C leads to D.
+Test different components combine to complete specific task correctly. E.g., unit tests verify A, B, and C work in isolation, then create integration test to verify A -> B -> C leads to D.
 
 Should still be isolated and repeatable, but may not be fast, self-verifying (may require manual check of result), and timely.
 
@@ -39,9 +39,9 @@ More accurately reflect real-world usage (can only do what user can do), but are
 1. Compiler checks. Static.
 2. Unit, integration, and UI tests. Some prefer different engineers writing tests than code authors.
 3. Continuous integration runs tests externally. May run subset of tests as "smoke tests" (most important functionalities).
-4. QA engineers manual testing with test sheets or grids, or fuzz testing (randomly and rapidly hitting UI).
-5. Hallway testing / dogfooding. Get other users within organization, or use app myself.
+4. QA engineers manually test against test sheets or grids, or fuzz test (randomly and rapidly hitting UI).
+5. Hallway test / dogfooding. Get other users within organization, or use app myself.
 6. Use service such as TestFlight to get test users.
-7. Production testing -- ship and lets real users find bugs. It all gets tested eventually.
+7. Production test -- ship and let real users find bugs. It all gets tested eventually.
 
 Preferably do as much 1-6 before 7.

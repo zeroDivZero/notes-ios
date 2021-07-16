@@ -14,7 +14,7 @@ Framework of all testing functionality.
 @testable import MyApp
 ```
 
-Import module to test, typically main app. Since tests are in separate module, `@testable` gives tests access control of tested module at `internal` level, so no need to change source to add `public`.
+Import module to test, typically main app. Since tests are in separate module, `@testable` gives tests access control of tested module at `internal` level, so no need to add `public` to source.
 
 ## Test Class
 

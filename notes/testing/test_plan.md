@@ -4,9 +4,9 @@ Xcode feature. Way to run test set with particular config. JSON file with `.xcte
 
 1. **Test targets:** One or more test targets (unit or UI). For each target, select tests (not always all) plan will run and if tests can run in parallel.
 
-2. **Shared settings:** Set of default options, can be overridden by specific config. Settings typically found in scheme editor: launch args, l10n settings, screenshot settings, execution order (alphabetic or random), runtime sanitizers, thread checker, and malloc guards.
+2. **Shared settings:** Set of default options, can be overridden by specific config. Include: launch args, l10n settings, screenshot settings, execution order (alphabetic or random), runtime sanitizers, thread checker, and malloc guards.
 
-3. **Configs:** One or more configs to override shared settings. Test plan runs selected tests multiple times, once per config.
+3. **Configs:** One or more configs to override shared settings. Test plan runs selected tests once per config.
 
 ## Convert Scheme to Use Test Plan
 
@@ -32,7 +32,7 @@ Add/remove test targets, tests, and change options (such as running tests in par
 
 ### Confiugrations
 
-Change **Shared Settings** (args, l10n, code coverage, sanitization, mem management, etc.). Add/remove configs (renamable) to change shared settings. Tests will be run for each config.
+Change **Shared Settings** (args, l10n, code coverage, sanitization, mem management, etc.). Add/remove specific configs (renamable) to override shared settings. Tests run once per config.
 
 If test target not added to plan cannot run tests manually in source code editor. Can add target but disable tests.
 
@@ -66,7 +66,7 @@ xcodebuild test -scheme ToDo -destination 'platform=iOS Simulator,OS=13.3,name=i
 
 ## Benefits
 
-* **Run tests with different sanitizers/diagnostics:** Can't test with both address and thread sanitizers enabled simultaneously. With test plan, can create 2 configs, one with address sanitizer enabled and another with thread sanitizer. Running test plan then runs tests twice, once for each config. Can easily add another config to run with malloc diagnostics.
+* **Run tests with different sanitizers/diagnostics:** Can't test with both address and thread sanitizers simultaneously. With test plan, can create 2 configs, one with address sanitizer enabled and another with thread sanitizer. Then tests run twice, once per config. Can add another config with malloc diagnostics.
 
 * **Test multiple localizations:** Create config for each supported language. Set app language and region as part of config. Good way to generate screenshots for localizers.
 

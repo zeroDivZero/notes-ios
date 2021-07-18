@@ -9,7 +9,7 @@
 
 ## `sut`
 
-Often see variable declared as `sut`, which stands for *system under test*, that refers to subject to test.
+Often see variable declared as `sut`, which stands for *system under test*, that refers to test subject.
 
 ```swift
 let sut = MyClass()
@@ -19,15 +19,11 @@ XCTAssertTrue(sut.doneSomething)
 
 ## `XCTUnwrap()`
 
-Asserts expression not `nil`, and returns unwrapped value. Saves having to do optional binding with `guard` or `if let`.
+Asserts expression not `nil`, and returns unwrapped value. Avoids optional binding with `guard` or `if let`.
 
 ```swift
 let myInt = try XCTUnwrap(myIntOptional)
 ```
-
-## Test Error
-
-Can catch error in test, use `XCTAssertThrowsError()` and `XCTAssertNoThrow()` to catch error, or make test itself throw error (failing test).
 
 ## `addTeardownBlock()`
 

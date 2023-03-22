@@ -1,8 +1,6 @@
 # OVERVIEW
 
-Xcode provides several runtime code diagnostics tools during development.
-
-To enable:
+To enable Xcode runtime code diagnostics tools:
 
 1. Go to scheme editor (click scheme pulldown and choose **Edit Scheme**, or with scheme selected: **Product** > **Scheme** > **Edit Scheme**, or **cmd+shift+,**).
 

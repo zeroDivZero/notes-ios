@@ -1,4 +1,4 @@
-# `struct HStack`
+# `HStack`
 
 View that arranges subviews in horizontal line.
 

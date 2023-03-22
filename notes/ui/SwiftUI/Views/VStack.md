@@ -1,4 +1,4 @@
-# `struct VStack`
+# `VStack`
 
 View that arranges subviews in vertical line.
 

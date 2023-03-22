@@ -1,10 +1,12 @@
 # VIEW ORGANIZATION
 
-If high-level view, like `body`, starts getting long, create new member views to keep it short.
+If high-level view, like `body`, starts getting long, either create custom views, or if subview not complex enough to be own custom view, create member views to keep it short.
 
 ```swift
 var body: some View {
     HStack {
+        CardView() // custom view
+        Spacer()
         remove
         Spacer()
         add

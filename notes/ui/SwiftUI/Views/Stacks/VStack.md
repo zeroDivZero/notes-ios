@@ -6,6 +6,19 @@ View that arranges subviews in vertical line.
 @frozen struct VStack<Content> where Content : View
 ```
 
+## Initializer
+
+```swift
+init(
+    alignment: HorizontalAlignment = .center,
+    spacing: CGFloat? = nil,
+    @ViewBuilder content: () -> Content
+)
+```
+
+* `alignment`: How subviews aligned in this stack. `.center`, `.leading`, `.trailing`, etc.
+* `spacing`: Distance between adjacent subviews, `nil` to let stack choose default.
+
 ## Example
 
 ```swift

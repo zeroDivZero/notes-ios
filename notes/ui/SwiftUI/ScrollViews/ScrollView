@@ -1,0 +1,19 @@
+# `ScrollView`
+
+```swift
+struct ScrollView<Content> where Content : View
+```
+
+Displays content within horizontally and vertically (no zoom) scrollable content region. As user performs scroll gestures, scroll view adjusts visible portion of content.
+
+```swift
+var body: some View {
+    ScrollView {
+        VStack(alignment: .leading) {
+            ForEach(0..<100) {
+                Text("Row \($0)")
+            }
+        }
+    }
+}
+```

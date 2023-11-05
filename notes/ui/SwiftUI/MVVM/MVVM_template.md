@@ -42,6 +42,6 @@ struct MyView: View {
 
 Mark View Model as `@ObservedObject`, so when it changes, view is redrawn.
 
-Observed object should always be passed in, never created by view. If view needs own state, declare with `@State` (value types like `String`, `Int`, etc.) or `@StateObject` (for reference types).
+Observed object should always be passed in, never created by view. If view needs own state, declare with [`@State`](../Property%20Wrappers/State%20Management/@State.md) (value types like `String`, `Int`, etc.) or `@StateObject` (for reference types).
 
 State should always have single source of truth, be it in parent view or at app root (`App` object).

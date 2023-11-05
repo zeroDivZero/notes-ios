@@ -8,7 +8,7 @@
 
 3 options:
 
-1. `@State` or `@StateObject` in `View`. Minimal separation.
+1. [`@State`](../Property%20Wrappers/State%20Management/@State.md) or `@StateObject` in `View`. Minimal separation.
 2. Model only accessible via gatekeeper entity **View Model**. Full separation.
 3. View Model exists, but Model can be directly accessed. Partial separation.
 

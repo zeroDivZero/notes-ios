@@ -36,3 +36,32 @@ var body: some View {
     }
 }
 ```
+
+## ID Keypath
+
+If data not conformed to `Identifiable`, need to specify keypath to ID that uniquely identifies instance.
+
+```swift
+List(collection, id: \.id) {
+    ListRow(element: $0)
+}
+```
+
+## Navigation to Detail View
+
+Add navigation by embedding list in `NavigationSplitView` and nesting each row in `NavigationLink` to set up transition to destination view.
+
+```swift
+NavigationSplitView {
+    List(items) { item in
+        NavigationLink {
+            ItemDetail(item: item)  // view to navigate to when row selected
+        } label: {
+            ItemRow(item: item)  // row view
+        }
+    }
+    .navigationTitle("Items")
+} detail: {
+    Text("Select an Item")  // default view when nothing selected (iPad)
+}
+```

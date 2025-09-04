@@ -1,6 +1,6 @@
 # TEST PYRAMID
 
-Stack representing different types of tests. All needed to effectively quality-assure app.
+Stack representing different test types. All needed to effectively quality-assure app.
 
 ![test pyramid](../../assets/test_pyramid.png)
 
